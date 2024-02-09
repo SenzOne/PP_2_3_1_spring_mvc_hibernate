@@ -1,35 +1,60 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Cars </title>
+    <title>Car List</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #333;
+            color: #fff;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #61dafb;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+            background-color: #444;
+            color: #fff;
+        }
+
+        th, td {
+            border: 1px solid #555;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+        }
+
+        tr:hover {
+            background-color: #555;
+        }
+    </style>
 </head>
 <body>
-<H1>Cars list:</H1>
-<div>
-    <th:block th:each="car : ${cars}">
-        <p th:text="${{car.getId()}}"></p>
-        <p th:text="${{car.getNameOfTheCar()}}"></p>
-        <p th:text="${car.getCarNumber}"></p>
-    </th:block>
-</div>
+<h1>List of cars:</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Car Number</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="car : ${cars}">
+        <td th:text="${car.getId()}"></td>
+        <td th:text="${car.getNameOfTheCar()}"></td>
+        <td th:text="${car.getCarNumber()}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
-
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" xmlns:th="http://thymeleaf.org">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>CARs</title>-->
-<!--</head>-->
-<!--<body>-->
-
-<!--<tr th:each="car : ${cars}">-->
-<!--    <td th:text="${car.getId()}">A car id</td>-->
-<!--    <td th:text="${car.getBrand()}">A car brand</td>-->
-<!--    <td th:text="${car.getColor()}">A car color</td>-->
-<!--    <p/>-->
-<!--</tr>-->
-
-<!--</body>-->
-<!--</html>-->
