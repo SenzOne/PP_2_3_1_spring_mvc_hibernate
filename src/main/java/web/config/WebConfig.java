@@ -58,7 +58,7 @@ public class WebConfig implements WebMvcConfigurer {
         props.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
 
         factoryBean.setHibernateProperties(props);
-        factoryBean.setAnnotatedClasses(User.class); //TODO: Аннотировать классы
+        factoryBean.setAnnotatedClasses(User.class);
         return factoryBean;
     }
 

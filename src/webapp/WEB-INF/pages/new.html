@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New User</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #333;
+            color: #fff;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #61dafb;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+            background-color: #444;
+            color: #fff;
+        }
+
+        th, td {
+            border: 1px solid #555;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+        }
+
+        tr:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+
+<form th:method="POST" th:action="@{/allUsers}" th:object="${user}">
+    <label for="firstName">First Name:</label>
+    <input type="text" th:field="*{firstName}" id="firstName">
+    <br/>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" th:field="*{lastName}" id="lastName">
+    <br/>
+
+    <label for="email">Email:</label>
+    <input type="text" th:field="*{email}" id="email">
+    <br/>
+
+    <input type="submit" value="Create!">
+</form>
+
+</body>
+</html>

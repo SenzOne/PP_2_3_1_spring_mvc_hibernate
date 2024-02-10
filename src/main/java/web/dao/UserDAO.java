@@ -8,16 +8,22 @@ import java.util.List;
 
 @Component
 public class UserDAO {
+    private static Long USER_COUNT = 0L;
     private List<User> userList;
 
     {
         userList = new ArrayList<>();
-        userList.add(new User(1L, "Michael","Johnston",  "MichaelJohnston@gmail.com"));
-        userList.add(new User(1L, "Joseph","Murray",  "JosephMurray@gmail.com"));
-        userList.add(new User(1L, "Gary","Sullivan",  "GarySullivan@gmail.com"));
+        userList.add(new User(++USER_COUNT, "Michael", "Johnston", "MichaelJohnston@gmail.com"));
+        userList.add(new User(++USER_COUNT, "Joseph", "Murray", "JosephMurray@gmail.com"));
+        userList.add(new User(++USER_COUNT, "Gary", "Sullivan", "GarySullivan@gmail.com"));
     }
 
     public List<User> allUsers() {
         return userList;
+    }
+
+    public void save(User user) {
+        user.setId(++USER_COUNT);
+        userList.add(user);
     }
 }
