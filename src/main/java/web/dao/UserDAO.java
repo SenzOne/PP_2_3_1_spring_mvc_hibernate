@@ -1,10 +1,12 @@
 package web.dao;
 
+import org.springframework.stereotype.Component;
 import web.models.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class UserDAO {
     private List<User> userList;
 
