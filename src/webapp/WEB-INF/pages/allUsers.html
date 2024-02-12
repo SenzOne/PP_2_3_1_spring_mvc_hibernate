@@ -5,12 +5,12 @@
     <title>All Users</title>
     <style>
         a {
-            text-decoration: none; /* Убираем подчеркивание для всех ссылок */
+            text-decoration: none;
             color: #fff;
         }
 
         .back-button a {
-            text-decoration: none; /* Убираем подчеркивание для ссылки в блоке .back-button */
+            text-decoration: none;
             background-color: #61dafb;
             color: #fff;
             padding: 10px 20px;
@@ -21,6 +21,7 @@
         .back-button a:hover {
             background-color: #447ab7;
         }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #333;
@@ -53,8 +54,11 @@
         tr:hover {
             background-color: #555;
         }
-    </style>
 
+        a:hover {
+            color: #bbb; /* Цвет текста при наведении */
+        }
+    </style>
 </head>
 <body>
 <h1>List of users:</h1>
@@ -70,14 +74,8 @@
     <tbody>
     <tr th:each="user : ${users}">
         <td th:text="${user.getId()}"></td>
-        <td>
-            <a th:href="@{/allUsers/{id}(id=${user.getId()})}" th:text="${user.getFirstName()}">View Details</a>
-        </td>
-
-        <td>
-            <a th:href="@{/allUsers/{id}(id=${user.getId()})}" th:text="${user.getLastName()}">View Details</a>
-        </td>
-
+        <td><a th:href="@{/allUsers/{id}(id=${user.getId()})}" th:text="${user.getFirstName()}"></a></td>
+        <td><a th:href="@{/allUsers/{id}(id=${user.getId()})}" th:text="${user.getLastName()}"></a></td>
         <td th:text="${user.getEmail()}"></td>
     </tr>
     </tbody>
