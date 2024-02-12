@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HelloController {
 
-	@GetMapping(value = "/")
-	public String printWelcome(ModelMap model) {
-		return "redirect: /allUsers/new";
-	}
+    @GetMapping(value = "/")
+    public String printWelcome(ModelMap model) {
+        return "redirect: /allUsers/new";
+    }
 
 }
