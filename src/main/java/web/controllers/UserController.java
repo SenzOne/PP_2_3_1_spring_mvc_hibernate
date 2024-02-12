@@ -23,20 +23,12 @@ public class UserController {
         return "/allUsers";
     }
 
-//    @GetMapping("/{id}")
-//    public String show(@PathVariable("id") Long id, Model model) {
-//        model.addAttribute("user", userDAO.show(id));
-////        System.out.println(userDAO.show(id));
-//        return "/show";
-//
-//
-//    }
 
     @GetMapping("/{id}")
     public String show(@PathVariable("id") Long id, Model model) {
         User user = userDAO.show(id);
         model.addAttribute("user", user);
-        return "show";
+        return "user-info";
     }
 
     @GetMapping("/new")
@@ -47,6 +39,18 @@ public class UserController {
     @PostMapping()
     public String create(@ModelAttribute("user") User user) {
         userDAO.save(user);
+        return "redirect: /allUsers";
+    }
+
+    @GetMapping("/{id}/edit")
+    public String edit(Model model, @PathVariable("id") Long id) {
+        model.addAttribute("user", userDAO.show(id));
+        return "edit";
+    }
+
+    @PatchMapping("/{id}")
+    public String update(@ModelAttribute("user") User user, @PathVariable("id") Long id) {
+        userDAO.update(id, user);
         return "redirect: /allUsers";
     }
 }

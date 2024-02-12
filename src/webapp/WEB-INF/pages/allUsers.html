@@ -76,8 +76,12 @@
         <td th:text="${user.getId()}"></td>
         <td><a th:href="@{/allUsers/{id}(id=${user.getId()})}" th:text="${user.getFirstName()}"></a></td>
         <td><a th:href="@{/allUsers/{id}(id=${user.getId()})}" th:text="${user.getLastName()}"></a></td>
-        <td th:text="${user.getEmail()}"></td>
+        <td><a th:href="@{/allUsers/{id}(id=${user.getId()})}" th:text="${user.getEmail()}"></a></td>
     </tr>
+
+    <div class="back-button">
+        <a th:href="@{/allUsers/new}">create user</a>
+    </div>
     </tbody>
 </table>
 </body>

@@ -30,4 +30,11 @@ public class UserDAO {
     public User show(Long id) {
         return userList.stream().filter(user -> user.getId().equals(id)).findAny().orElse(null);
     }
+
+    public void update(Long id, User user) {
+        User userTobeUpd = show(id);
+        userTobeUpd.setFirstName(user.getFirstName());
+        userTobeUpd.setLastName(user.getLastName());
+        userTobeUpd.setEmail(user.getEmail());
+    }
 }
