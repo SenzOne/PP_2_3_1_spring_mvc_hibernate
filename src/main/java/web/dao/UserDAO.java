@@ -37,4 +37,9 @@ public class UserDAO {
         userTobeUpd.setLastName(user.getLastName());
         userTobeUpd.setEmail(user.getEmail());
     }
+
+
+    public void delete(Long id) {
+        userList.removeIf(user -> user.getId().equals(id));
+    }
 }

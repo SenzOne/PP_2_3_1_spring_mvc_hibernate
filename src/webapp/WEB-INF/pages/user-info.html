@@ -51,6 +51,7 @@
         }
     </style>
 </head>
+
 <body>
 <div class="user-container">
     <h2>User Details</h2>
@@ -64,6 +65,17 @@
     <div class="back-button">
         <a th:href="@{/allUsers}">Back to All Users</a>
     </div>
+    <div class="back-button">
+        <a th:href="@{/allUsers/{id}/edit(id=${user.getId()})}">Edit user data</a>
+    </div>
+
+    <!--    <form th:method="DELETE" th:action="@{/allUsers/{id}}" onsubmit="return confirm('Are you sure you want to delete this user?');">-->
+    <!--        <input type="hidden" name="_method" value="DELETE"/>-->
+    <!--        <input type="submit" value="Delete"/>-->
+    <!--    </form>-->
+    <form th:method="delete" th:action="@{/allUsers/{id}(id=${user.getId()})}">
+        <input type="submit" value="Delete"/>
+    </form>
 </div>
 </body>
 </html>
