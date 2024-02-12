@@ -26,4 +26,8 @@ public class UserDAO {
         user.setId(++USER_COUNT);
         userList.add(user);
     }
+
+    public User show(Long id) {
+        return userList.stream().filter(user -> user.getId().equals(id)).findAny().orElse(null);
+    }
 }
