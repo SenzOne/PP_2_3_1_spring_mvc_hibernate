@@ -88,7 +88,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>Spring_MVC</finalName>
+        <finalName>PP_2_3_1_spring_mvc_hibernate</finalName>
     </build>
 
 </project>

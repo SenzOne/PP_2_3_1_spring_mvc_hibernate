@@ -9,25 +9,24 @@ import web.models.User;
 import java.util.List;
 
 @Service
+@Transactional
 public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDao;
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<User> getAllUser() {
         return userDao.getAllUser();
     }
 
     @Override
-    @Transactional
     public void save(User user) {
         userDao.save(user);
     }
 
     @Override
-    @Transactional
     public User getUser(Long id) {
         return userDao.getUser(id);
     }
