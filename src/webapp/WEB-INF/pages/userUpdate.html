@@ -7,7 +7,8 @@
 </head>
 <body>
 <div>
-    <form th:method="POST" th:action="@{/updateUser}" th:object="${user}">
+
+    <form th:method="PACH" th:action="@{/updateUser}" th:object="${user}">
         <input hidden="hidden" type="number" th:field="*{id}" id="idAdd" placeholder="id">
         <label for="firstNameUpdate">Name</label>
         <input type="text" th:field="*{firstName}" id="firstNameUpdate" placeholder="Name">
@@ -16,7 +17,7 @@
         <input type="text" th:field="*{lastName}" id="lastNameUpdate" placeholder="LastName">
         <br>
         <label for="emailUpdate">Email</label>
-        <input type="text" th:field="*{email}" id="emailUpdate" placeholder="Age">
+        <input type="text" th:field="*{email}" id="emailUpdate" placeholder="email">
         <br>
         <input type="submit" value="Update User">
     </form>
