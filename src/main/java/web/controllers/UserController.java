@@ -52,16 +52,16 @@ public class UserController {
         return "userUpdate";
     }
 
-    @PostMapping("/updateUser")
-    public String updateUser(@ModelAttribute("user") User user) {
-        userService.update(user);
-        return "redirect:/users";
-    }
+//    @PostMapping("/updateUser")
+//    public String updateUser(@ModelAttribute("user") User user) {
+//        userService.update(user);
+//        return "redirect:/users";
+//    }
 
 
 //    @GetMapping()
 //    public String showAllUser(Model model){
-//        model.addAttribute("users", userService.getAllUser());
+//        model.addAttribute("users", userService.getAllUsers());
 //        return "allUsers";
 //    }
 //
@@ -80,7 +80,7 @@ public class UserController {
 
 //    @GetMapping()
 //    public String allUsers(Model model) {
-//        model.addAttribute("users", userService.getAllUser());
+//        model.addAttribute("users", userService.getAllUsers());
 //        return "/allUsers";
 //    }
 //

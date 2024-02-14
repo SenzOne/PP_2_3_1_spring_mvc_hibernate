@@ -18,28 +18,28 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional(readOnly = true)
     public List<User> getAllUser() {
-        return userDao.getAllUser();
+        return userDao.getAllUsers();
     }
 
     @Override
     public void save(User user) {
-        userDao.save(user);
-    }
-
-    @Override
-    public User getUser(Long id) {
-        return userDao.getUser(id);
+        userDao.addUser(user);
     }
 
     @Transactional
     @Override
-    public void update(Long id, User user) {
-        userDao.update(id, user);
+    public void update(User user) {
+        userDao.updateUser(user);
     }
 
     @Override
     @Transactional
     public void delete(Long id) {
-        userDao.delete(id);
+        userDao.deleteUser(id);
+    }
+
+    @Override
+    public User getUser(Long id) {
+        return userDao.getUser(id);
     }
 }
