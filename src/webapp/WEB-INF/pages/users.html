@@ -3,33 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <title>Users</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 800px;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #ff6600;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        td {
+            transition: background-color 0.3s ease;
+        }
+
+        tr:hover td {
+            background-color: #ff8c1a;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #ff6600;
+        }
+
+        .buttons {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .buttons button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            background-color: #ff6600;
+            color: #fff;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .buttons button:last-child {
+            margin-right: 0;
+        }
+
+        .buttons button:hover {
+            background-color: #ff8c1a;
+        }
+    </style>
 </head>
 <body>
-<table border="1">
-    <thead>
-    <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>LastName</th>
-        <th>Email</th>
-        <th>Operations</th>
-    </tr>
-    </thead>
-    <tr th:each="user : ${users}">
+<div class="container">
+    <H2>Users: </H2>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Operations</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.id}">ID</td>
+            <td th:text="${user.firstName}">Name</td>
+            <td th:text="${user.lastName}">Last Name</td>
+            <td th:text="${user.email}">Email</td>
+            <td>
+                <a th:href="'/updateUser?id=' + ${user.id}">Update</a>
+                <span> | </span>
+                <a th:href="'/removeUser?id=' + ${user.id}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 
-        <td th:text="${user.getId()}">ID</td>
-        <td th:text="${user.getFirstName()}">Name</td>
-        <td th:text="${user.getLastName()}">LastName</td>
-        <td th:text="${user.getEmail()}">Age</td>
-        <td>
-            <a th:href="'/updateUser?id=' + ${user.id}">Update</a>
-        </td>
-        <td>
-            <a th:href="'/removeUser?id=' + ${user.id}">Delete</a>
-        </td>
-    </tr>
-</table>
-<br>
-<button onclick="window.location.href = '/new'">add new user</button>
+    <div class="buttons">
+        <button onclick="window.location.href = '/new'">Add New User</button>
+        <button onclick="window.location.href = '/'">Home Page</button>
+    </div>
+</div>
 </body>
 </html>

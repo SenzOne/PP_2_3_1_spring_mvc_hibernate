@@ -1,15 +1,76 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Your Page Title</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        div {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #071e2f;
+        }
+
+        p {
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+
+        button {
+            background-color: #ff6600;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff8c1a;
+        }
+
+        .buttons {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .buttons button {
+            margin-right: 10px;
+        }
+    </style>
 </head>
+
 <body>
-<div>
-    <th:block th:each="msg : ${messages}">
-        <h1 th:text="${msg}"></h1>
-    </th:block>
+<div th:each="msg : ${messages}">
+    <h1 th:text="${msg}"></h1>
+    <p>Experience seamless user management with our website, where you can effortlessly add, remove, and update user
+        information—all synchronized in real-time with the database through the power of Hibernate. Streamline your
+        interactions and keep your user data accurate and up-to-date with ease.</p>
+</div>
+<div class="buttons">
+    <button onclick="window.location.href = '/users'">Go to All Users</button>
+    <button onclick="window.location.href = '/new'">Add New User</button>
 </div>
 </body>
+
 </html>

@@ -106,20 +106,4 @@
         <finalName>PP_2_3_1_spring_mvc_hibernate</finalName>
     </build>
 
-    <!--    <build>-->
-    <!--        <plugins>-->
-    <!--            <plugin>-->
-    <!--                <groupId>org.apache.maven.plugins</groupId>-->
-    <!--                <artifactId>maven-compiler-plugin</artifactId>-->
-    <!--                <version>3.8.0</version>-->
-    <!--                <configuration>-->
-    <!--                    <compilerArgs>-->
-    <!--                        <arg>&#45;&#45;illegal-access=permit</arg>-->
-    <!--                    </compilerArgs>-->
-    <!--                </configuration>-->
-    <!--            </plugin>-->
-    <!--        </plugins>-->
-    <!--    </build>-->
-
-
 </project>

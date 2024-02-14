@@ -33,13 +33,13 @@ public class UserController {
 
     @PostMapping("/userCreate")
     public String addUser(@ModelAttribute("user") User user) {
-        userService.save(user);
+        userService.addUser(user);
         return "redirect:/users";
     }
 
     @GetMapping("/removeUser")
     public String removeUser(@RequestParam("id") Long id) {
-        userService.delete(id);
+        userService.deleteUser(id);
         return "redirect:/users";
     }
 
@@ -52,7 +52,7 @@ public class UserController {
 
     @PostMapping("/updateUser")
     public String postEditUserForm(@ModelAttribute("user") User user) {
-        userService.update(user);
+        userService.updateUser(user);
         return "redirect:/users";
     }
 }
